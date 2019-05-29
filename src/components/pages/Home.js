@@ -1,20 +1,26 @@
 
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class Home extends React.Component {
   constructor() {
     super()
-    this.state = {text: 'Not clicked!'}
+    this.state = {albums: []}
   }
 
-  onButtonClick() {
-    this.setState({text: 'Clicked!'})
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/albums/')
+      .then(response => response.json())
+      .then(json => this.state.albums = json)
+      .catch(e => console.log(e))
   }
 
   render() {
     return (
       <div className="albums">
-        Albums
+        {this.state.albums.map(album => {
+          return <Link to={`/album/${album.id}`} key={album.id}>{album.title} {album.userId}</Link>
+        })}
       </div>
     )
   }
