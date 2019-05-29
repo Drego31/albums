@@ -9,7 +9,7 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
+  Switch
 } from 'react-router-dom'
 import User from 'components/pages/User'
 import Header from 'components/molecules/Header'
