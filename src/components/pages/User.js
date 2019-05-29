@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-class Photos extends React.Component {
+class User extends React.Component {
   constructor() {
     super()
     this.state = {text: 'Not clicked!'}
@@ -14,10 +14,11 @@ class Photos extends React.Component {
   render() {
     return (
       <div className="albums">
-        Photos
+        User
+        {this.props.match.params.photoId}
       </div>
     )
   }
 }
 
-export default Photos
+export default User
