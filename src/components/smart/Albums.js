@@ -14,6 +14,7 @@ class Albums extends React.Component {
   render() {
     return (
       <div className="albums">
+        Albums
       </div>
     )
   }

@@ -14,6 +14,7 @@ class Photos extends React.Component {
   render() {
     return (
       <div className="albums">
+        Photos
       </div>
     )
   }
