@@ -6,8 +6,7 @@ class MHeader extends React.Component {
     return (
       <div className="m-header">
         <Link to='/' className="a-title f-site">Albums</Link>
-        <span className="a-subtitle f-header">{this.props.location.pathname}</span>
-        <Link to='/' className="a-subtitle f-header"> - Back to albums </Link>
+        <span className="a-subtitle f-header">by Dominik Betka</span>
       </div>
     )
   }

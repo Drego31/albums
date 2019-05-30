@@ -1,7 +1,3 @@
-import PPhoto from 'components/pages/Photo'
-import PHome from 'components/pages/Home'
-import PAlbum from 'components/pages/Album'
-import PUser from 'components/pages/User'
 import MHeader from 'components/molecules/Header'
 
 require('normalize.css/normalize.css')
@@ -13,10 +9,17 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
+import {LINKS} from '../utils/macros'
 
 class AppComponent extends React.Component {
   constructor() {
     super()
+  }
+
+  generateRoutes() {
+    return LINKS.map(({component, path, exact = false}) => (
+      <Route key={path} exact={exact} path={path} component={component}/>
+    ))
   }
 
   render() {
@@ -25,10 +28,7 @@ class AppComponent extends React.Component {
         <div className='o-content'>
           <MHeader/>
           <Switch>
-            <Route exact path='/' component={PHome}/>
-            <Route path='/album/:albumId' component={PAlbum}/>
-            <Route path='/photo/:photoId' component={PPhoto}/>
-            <Route path='/user/:userId' component={PUser}/>
+            {this.generateRoutes()}
           </Switch>
         </div>
       </Router>
