@@ -1,6 +1,7 @@
 
 import React from 'react'
 import AButtonAlbum from 'components/atoms/Button/Album'
+import albumsApi from 'sources/albums'
 
 class PHome extends React.Component {
   constructor() {
@@ -12,13 +13,15 @@ class PHome extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/albums/')
-      .then(response => response.ok ? response.json() : [])
+    albumsApi.getAll()
       .then(json => this.setState({
         albums: json,
-        message: json.length > 0 ? '' : 'We have a problem with server connection... Come back later! :)'
+        message: '',
       }))
-      .catch(e => console.error(e))
+      .catch(() => this.setState({
+        albums: [],
+        message: 'We have a problem with server connection... Come back later! :)'
+      }))
   }
 
   render() {
