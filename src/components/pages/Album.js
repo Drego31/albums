@@ -22,13 +22,10 @@ class PAlbum extends React.Component {
         photos: json,
         message: ''
       }))
-      .catch(e => {
-        console.error(e)
-        this.setState({
-          photos: [],
-          message: WRONG_CONNECTION_MESSAGE
-        })
-      })
+      .catch(() => this.setState({
+        photos: [],
+        message: WRONG_CONNECTION_MESSAGE
+      }))
 
     albumsApi.getByAlbumId(this.props.match.params.albumId)
       .then(json => {
@@ -40,7 +37,7 @@ class PAlbum extends React.Component {
 
   updateUserName(userId) {
     usersApi.getByUserId(userId)
-      .then(json => this.setState({userName: json.name}))
+      .then(json => this.setState({userName: json.username}))
       .catch(() => this.setState({userName: ''}))
   }
 
