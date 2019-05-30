@@ -38,7 +38,7 @@ class PHome extends React.Component {
     }
 
     return (
-      <div className="albums">
+      <div className="p-home">
         {content()}
       </div>
     )
