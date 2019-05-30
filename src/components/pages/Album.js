@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import photosApi from 'sources/photos'
-import {WRONG_CONNECTION_MESSAGE} from '../../utils/macros'
 import albumsApi from 'sources/albums'
 import usersApi from 'sources/users'
 import MMiniPhoto from 'components/molecules/MiniPhoto'
@@ -12,7 +11,7 @@ class PAlbum extends React.Component {
     super()
     this.state = {
       album: {},
-      userName: '',
+      user: {},
       photos: []
     }
   }
@@ -32,8 +31,8 @@ class PAlbum extends React.Component {
 
   updateUserName(userId) {
     usersApi.getByUserId(userId)
-      .then(json => this.setState({userName: json.username}))
-      .catch(() => this.setState({userName: ''}))
+      .then(json => this.setState({user: json}))
+      .catch(() => this.setState({user: {}}))
   }
 
   getPhotos() {
@@ -48,10 +47,10 @@ class PAlbum extends React.Component {
         <div className="f-pt-1 f-pb-2">
           <div className="a-title f-page">{this.state.album.title}</div>
           <Link
-            to={`/user/${this.props.match.params.albumId}`}
+            to={`/user/${this.state.user.id}`}
             className="a-subtitle f-page"
           >
-            by {this.state.userName}
+            by {this.state.user.username}
           </Link>
         </div>
         <div className="f-flex-wrap f-flex-center">

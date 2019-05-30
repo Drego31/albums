@@ -16,7 +16,7 @@ class TPage extends React.Component {
     }
 
     return (
-      <div className="t-page">
+      <div className={'t-page ' + this.props.className}>
         {content()}
       </div>
     )
