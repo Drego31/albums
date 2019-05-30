@@ -1,6 +1,6 @@
 import React from 'react'
-import {WRONG_CONNECTION_MESSAGE} from '../../utils/macros'
 import usersApi from 'sources/users'
+import TPage from 'components/templates/page'
 
 class PUser extends React.Component {
   constructor() {
@@ -18,8 +18,7 @@ class PUser extends React.Component {
   componentDidMount() {
     usersApi.getByUserId(this.props.match.params.userId)
       .then(json => this.setState({
-        user: json,
-        message: ''
+        user: json
       }))
       .catch(() => this.setState({
         user: {
@@ -27,14 +26,13 @@ class PUser extends React.Component {
             geo: {}
           },
           company: {}
-        },
-        message: WRONG_CONNECTION_MESSAGE
+        }
       }))
   }
 
   render() {
     return (
-      <div className="t-page p-user">
+      <TPage className="p-user">
         <div className="f-py-1">
           <div className="a-title f-page">{this.state.user.username}</div>
         </div>
@@ -74,7 +72,7 @@ class PUser extends React.Component {
             <div>{this.state.user.company.bs}</div>
           </div>
         </div>
-      </div>
+      </TPage>
     )
   }
 }

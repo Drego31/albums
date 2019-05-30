@@ -3,51 +3,40 @@ import AButtonAlbum from 'components/atoms/Button/Album'
 import albumsApi from 'sources/albums'
 import {WRONG_CONNECTION_MESSAGE} from '../../utils/macros'
 import {Link} from 'react-router-dom'
+import TPage from 'components/templates/page'
 
 class PHome extends React.Component {
   constructor() {
     super()
     this.state = {
       albums: [],
-      message: ''
     }
   }
 
   componentDidMount() {
     albumsApi.getAll()
-      .then(json => this.setState({
-        albums: json,
-        message: ''
-      }))
-      .catch(() => this.setState({
-        albums: [],
-        message: WRONG_CONNECTION_MESSAGE
-      }))
+      .then(json => this.setState({albums: json}))
+      .catch(() => this.setState({albums: []}))
   }
 
   render() {
     const content = () => {
-      if (this.state.message !== '') {
-        return <div className='a-message f-page'>{this.state.message}</div>
-      } else {
-        return this.state.albums.map(album => (
-            <AButtonAlbum
-              to={`/album/${album.id}`}
-              key={album.id}
-              title={album.title}
-            />
-          )
-        )
-      }
+      return this.state.albums.map(album => (
+        <AButtonAlbum
+          to={`/album/${album.id}`}
+          key={album.id}
+          title={album.title}
+        />
+      ))
     }
 
     return (
-      <div className="p-home t-page">
+      <TPage className="p-home">
         <div className="f-py-1">
           <div className="a-title f-page">Choose album</div>
         </div>
         {content()}
-      </div>
+      </TPage>
     )
   }
 }

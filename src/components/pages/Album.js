@@ -5,6 +5,7 @@ import {WRONG_CONNECTION_MESSAGE} from '../../utils/macros'
 import albumsApi from 'sources/albums'
 import usersApi from 'sources/users'
 import MMiniPhoto from 'components/molecules/MiniPhoto'
+import TPage from 'components/templates/page'
 
 class PAlbum extends React.Component {
   constructor() {
@@ -18,14 +19,8 @@ class PAlbum extends React.Component {
 
   componentDidMount() {
     photosApi.getAllByAlbumId(this.props.match.params.albumId)
-      .then(json => this.setState({
-        photos: json,
-        message: ''
-      }))
-      .catch(() => this.setState({
-        photos: [],
-        message: WRONG_CONNECTION_MESSAGE
-      }))
+      .then(json => this.setState({photos: json}))
+      .catch(() => this.setState({photos: []}))
 
     albumsApi.getByAlbumId(this.props.match.params.albumId)
       .then(json => {
@@ -49,7 +44,7 @@ class PAlbum extends React.Component {
 
   render() {
     return (
-      <div className="t-page p-album">
+      <TPage className="p-album">
         <div className="f-pt-1 f-pb-2">
           <div className="a-title f-page">{this.state.album.title}</div>
           <Link
@@ -62,7 +57,7 @@ class PAlbum extends React.Component {
         <div className="f-flex-wrap f-flex-center">
           {this.getPhotos()}
         </div>
-      </div>
+      </TPage>
     )
   }
 }
