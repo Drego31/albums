@@ -16,7 +16,7 @@ class PHome extends React.Component {
       .then(response => response.ok ? response.json() : [])
       .then(json => this.setState({
         albums: json,
-        message: json.length > 0 ? '' : 'We have a problem... Come back later! :)'
+        message: json.length > 0 ? '' : 'We have a problem with server connection... Come back later! :)'
       }))
       .catch(e => console.error(e))
   }

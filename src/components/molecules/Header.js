@@ -8,9 +8,7 @@ class MHeader extends React.Component {
         <span className="a-title f-site">Albums</span>
         -
         <span className="a-title f-page">{this.props.location.pathname}</span>
-        ||
-        <Link to={'/'} className="nav-link"> Home </Link>
-        <Link to={'/album/124124'} className="nav-link">Album 1</Link>
+        <Link to={'/'} className="nav-link"> Back to albums </Link>
       </div>
     )
   }
