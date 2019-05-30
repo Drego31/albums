@@ -5,7 +5,7 @@ import PUser from 'components/pages/User'
 import MHeader from 'components/molecules/Header'
 
 require('normalize.css/normalize.css')
-require('styles/App.sass')
+require('styles/index.sass')
 
 import React from 'react'
 import {

@@ -1,6 +1,5 @@
 
 import React from 'react'
-import {Link} from 'react-router-dom'
 import AButtonAlbum from 'components/atoms/Button/Album'
 
 class PHome extends React.Component {
@@ -13,7 +12,7 @@ class PHome extends React.Component {
     fetch('https://jsonplaceholder.typicode.com/albums/')
       .then(response => response.json())
       .then(json => this.state.albums = json)
-      .catch(e => console.log(e))
+      .catch(e => console.error(e))
   }
 
   render() {
