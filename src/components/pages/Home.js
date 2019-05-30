@@ -1,15 +1,13 @@
 import React from 'react'
 import AButtonAlbum from 'components/atoms/Button/Album'
 import albumsApi from 'sources/albums'
-import {WRONG_CONNECTION_MESSAGE} from '../../utils/macros'
-import {Link} from 'react-router-dom'
 import TPage from 'components/templates/page'
 
 class PHome extends React.Component {
   constructor() {
     super()
     this.state = {
-      albums: [],
+      albums: []
     }
   }
 
