@@ -1,7 +1,7 @@
 import React from 'react'
 import {withRouter, Link} from 'react-router-dom'
 
-class Header extends React.Component {
+class MHeader extends React.Component {
   render() {
     return (
       <div className="m-header">
@@ -16,4 +16,4 @@ class Header extends React.Component {
   }
 }
 
-export default withRouter(Header)
+export default withRouter(MHeader)

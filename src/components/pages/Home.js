@@ -1,8 +1,9 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom'
+import AButtonAlbum from 'components/atoms/Button/Album'
 
-class Home extends React.Component {
+class PHome extends React.Component {
   constructor() {
     super()
     this.state = {albums: []}
@@ -19,11 +20,18 @@ class Home extends React.Component {
     return (
       <div className="albums">
         {this.state.albums.map(album => {
-          return <Link to={`/album/${album.id}`} key={album.id}>{album.title} {album.userId}</Link>
+          return (
+            <AButtonAlbum
+              to={`/album/${album.id}`}
+              key={album.id}
+              title={album.title}
+              user={album.userId}
+            />
+          )
         })}
       </div>
     )
   }
 }
 
-export default Home
+export default PHome

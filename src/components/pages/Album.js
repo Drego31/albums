@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-class Album extends React.Component {
+class PAlbum extends React.Component {
   constructor() {
     super()
     this.state = {text: 'Not clicked!'}
@@ -21,4 +21,4 @@ class Album extends React.Component {
   }
 }
 
-export default Album
+export default PAlbum

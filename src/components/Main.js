@@ -1,6 +1,8 @@
-import Photo from 'components/pages/Photo'
-import Home from 'components/pages/Home'
-import Album from 'components/pages/Album'
+import PPhoto from 'components/pages/Photo'
+import PHome from 'components/pages/Home'
+import PAlbum from 'components/pages/Album'
+import PUser from 'components/pages/User'
+import MHeader from 'components/molecules/Header'
 
 require('normalize.css/normalize.css')
 require('styles/App.sass')
@@ -11,8 +13,6 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import User from 'components/pages/User'
-import Header from 'components/molecules/Header'
 
 class AppComponent extends React.Component {
   constructor() {
@@ -23,12 +23,12 @@ class AppComponent extends React.Component {
     return (
       <Router>
         <div>
-          <Header/>
+          <MHeader/>
           <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route path='/album/:albumId' component={Album}/>
-            <Route path='/photo/:photoId' component={Photo}/>
-            <Route path='/user/:userId' component={User}/>
+            <Route exact path='/' component={PHome}/>
+            <Route path='/album/:albumId' component={PAlbum}/>
+            <Route path='/photo/:photoId' component={PPhoto}/>
+            <Route path='/user/:userId' component={PUser}/>
           </Switch>
         </div>
       </Router>

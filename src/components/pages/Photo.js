@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-class Photo extends React.Component {
+class PPhoto extends React.Component {
   constructor() {
     super()
     this.state = {text: 'Not clicked!'}
@@ -21,4 +21,4 @@ class Photo extends React.Component {
   }
 }
 
-export default Photo
+export default PPhoto

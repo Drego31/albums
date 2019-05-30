@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AlbumsList = (props) => {
+const OAlbumsList = (props) => {
   return (
     <ul>
       {props.items.map(item => {
@@ -10,4 +10,4 @@ const AlbumsList = (props) => {
   )
 }
 
-export default AlbumsList
+export default OAlbumsList

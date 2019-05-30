@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-class User extends React.Component {
+class PUser extends React.Component {
   constructor() {
     super()
     this.state = {text: 'Not clicked!'}
@@ -21,4 +21,4 @@ class User extends React.Component {
   }
 }
 
-export default User
+export default PUser
