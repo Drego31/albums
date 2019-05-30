@@ -1,4 +1,3 @@
-
 import React from 'react'
 import AButtonAlbum from 'components/atoms/Button/Album'
 import albumsApi from 'sources/albums'
@@ -9,7 +8,7 @@ class PHome extends React.Component {
     super()
     this.state = {
       albums: [],
-      message: '',
+      message: ''
     }
   }
 
@@ -17,7 +16,7 @@ class PHome extends React.Component {
     albumsApi.getAll()
       .then(json => this.setState({
         albums: json,
-        message: '',
+        message: ''
       }))
       .catch(() => this.setState({
         albums: [],
