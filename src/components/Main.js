@@ -22,7 +22,7 @@ class AppComponent extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className='o-content'>
           <MHeader/>
           <Switch>
             <Route exact path='/' component={PHome}/>
