@@ -2,6 +2,7 @@
 import React from 'react'
 import AButtonAlbum from 'components/atoms/Button/Album'
 import albumsApi from 'sources/albums'
+import {WRONG_CONNECTION_MESSAGE} from '../../utils/macros'
 
 class PHome extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ class PHome extends React.Component {
       }))
       .catch(() => this.setState({
         albums: [],
-        message: 'We have a problem with server connection... Come back later! :)'
+        message: WRONG_CONNECTION_MESSAGE
       }))
   }
 
