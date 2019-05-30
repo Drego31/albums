@@ -2,6 +2,7 @@ import React from 'react'
 import AButtonAlbum from 'components/atoms/Button/Album'
 import albumsApi from 'sources/albums'
 import {WRONG_CONNECTION_MESSAGE} from '../../utils/macros'
+import {Link} from 'react-router-dom'
 
 class PHome extends React.Component {
   constructor() {
@@ -42,6 +43,9 @@ class PHome extends React.Component {
 
     return (
       <div className="p-home t-page">
+        <div className="f-py-1">
+          <div className="a-title f-page">Choose album</div>
+        </div>
         {content()}
       </div>
     )
