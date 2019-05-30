@@ -5,29 +5,41 @@ import AButtonAlbum from 'components/atoms/Button/Album'
 class PHome extends React.Component {
   constructor() {
     super()
-    this.state = {albums: []}
+    this.state = {
+      albums: [],
+      message: '',
+    }
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/albums/')
-      .then(response => response.json())
-      .then(json => this.state.albums = json)
+    fetch('https://jsonplaceholder.typicode.com/albumsx/')
+      .then(response => response.ok ? response.json() : [])
+      .then(json => this.setState({
+        albums: json,
+        message: json.length > 0 ? '' : 'We have a problem... Come back later! :)'
+      }))
       .catch(e => console.error(e))
   }
 
   render() {
-    return (
-      <div className="albums">
-        {this.state.albums.map(album => {
-          return (
+    const content = () => {
+      if (this.state.message !== '') {
+        return <div className='a-message f-page'>{this.state.message}</div>
+      } else {
+        return this.state.albums.map(album => (
             <AButtonAlbum
               to={`/album/${album.id}`}
               key={album.id}
               title={album.title}
-              user={album.userId}
             />
           )
-        })}
+        )
+      }
+    }
+
+    return (
+      <div className="albums">
+        {content()}
       </div>
     )
   }
