@@ -12,7 +12,7 @@ class PHome extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/albumsx/')
+    fetch('https://jsonplaceholder.typicode.com/albums/')
       .then(response => response.ok ? response.json() : [])
       .then(json => this.setState({
         albums: json,
