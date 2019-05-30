@@ -1,21 +1,35 @@
 
 import React from 'react'
+import {WRONG_CONNECTION_MESSAGE} from '../../utils/macros'
+import photosApi from 'sources/photos'
 
 class PPhoto extends React.Component {
   constructor() {
     super()
-    this.state = {text: 'Not clicked!'}
+    this.state = {
+      photo: {}
+    }
   }
 
-  onButtonClick() {
-    this.setState({text: 'Clicked!'})
+  componentDidMount() {
+    photosApi.getById(this.props.match.params.photoId)
+      .then(json => this.setState({
+        photo: json,
+        message: ''
+      }))
+      .catch(() => this.setState({
+        photo: {},
+        message: WRONG_CONNECTION_MESSAGE
+      }))
   }
 
   render() {
     return (
-      <div className="albums">
-        Photo
-        {this.props.match.params.photoId}
+      <div className="t-page p-photo">
+        <div className="f-py-1">
+          <div className="a-title f-page">{this.state.photo.title}</div>
+        </div>
+        <img className="a-photo f-full" src={this.state.photo.url} />
       </div>
     )
   }

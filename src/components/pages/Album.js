@@ -17,7 +17,7 @@ class PAlbum extends React.Component {
   }
 
   componentDidMount() {
-    photosApi.getByAlbumId(this.props.match.params.albumId)
+    photosApi.getAllByAlbumId(this.props.match.params.albumId)
       .then(json => this.setState({
         photos: json,
         message: ''

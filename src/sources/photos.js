@@ -1,7 +1,8 @@
 import {ownRequest} from '../utils/own-request'
 
 const photosApi = {
-  getByAlbumId: (albumId) => ownRequest.get(`/photos/?albumId=${albumId}`)
+  getAllByAlbumId: (albumId) => ownRequest.get(`/photos/?albumId=${albumId}`),
+  getById: (id) => ownRequest.get(`/photos/${id}`)
 }
 
 
